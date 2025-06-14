@@ -169,7 +169,8 @@ export default function HiringInsights() {
               interval={getInterval()}
               height={40}
               tickMargin={5}
-              axisLine={{ stroke: '#666' }}
+              axisLine={false}
+              tickLine={false}
             />
             <YAxis 
               stroke="#666"
@@ -178,6 +179,8 @@ export default function HiringInsights() {
               domain={[0, 100]}
               ticks={[0, 13, 25, 38, 50, 63, 75, 88, 100]}
               width={40}
+              axisLine={false}
+              tickLine={false}
             />
             <Tooltip 
               content={<CustomTooltip />}
