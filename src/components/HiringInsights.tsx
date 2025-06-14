@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import {
   LineChart,
   Line,
@@ -108,11 +108,22 @@ const CustomLegend = () => {
 
 export default function HiringInsights() {
   const [selectedTimeframe, setSelectedTimeframe] = useState(timeframes[0].value);
+  const [isClient, setIsClient] = useState(false);
   
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   // Generate data based on selected timeframe
   const mockData = useMemo(() => {
     return generateMockData(parseInt(selectedTimeframe));
   }, [selectedTimeframe]);
+
+  // Calculate interval based on screen width
+  const getInterval = () => {
+    if (!isClient) return 5; // Default value for server-side rendering
+    return Math.floor(mockData.length / (window.innerWidth < 640 ? 5 : 10));
+  };
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 w-full">
@@ -155,7 +166,7 @@ export default function HiringInsights() {
               dataKey="date" 
               stroke="#666"
               tick={{ fill: '#666', fontSize: 12 }}
-              interval={Math.floor(mockData.length / (window.innerWidth < 640 ? 5 : 10))}
+              interval={getInterval()}
               height={40}
               tickMargin={5}
               axisLine={{ stroke: '#666' }}
