@@ -127,7 +127,7 @@ export default function HiringInsights() {
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 w-full">
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-2 sm:mb-6">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-2 sm:mb-6 ml-12 mr-5">
         <h2 className="text-xl sm:text-2xl font-bold text-gray-800">Hiring Insights</h2>
         <div className="relative w-full sm:w-auto">
           <select
@@ -214,7 +214,7 @@ export default function HiringInsights() {
         </ResponsiveContainer>
       </div>
       
-      <div className="flex flex-wrap gap-4 sm:gap-6 ml-[50px] sm:ml-[50px]">
+      <div className="flex flex-wrap gap-4 sm:gap-6 ml-12 sm:ml-12">
         <div className="flex items-center gap-2">
           <div className="w-4 h-4 rounded-full bg-[#22c55e]"></div>
           <span className="text-sm sm:text-base text-gray-600">Application to Interview Rate</span>
